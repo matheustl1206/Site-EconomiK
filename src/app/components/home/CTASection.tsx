@@ -45,7 +45,7 @@ export function CTASection() {
           loop
           playsInline
           preload="auto"
-          className="absolute right-0 top-1/2 -translate-y-1/2 h-full w-auto max-w-none object-cover"
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-full w-auto max-w-none object-cover"
           style={{ opacity: 0.75 }}
         >
           <source src={mascotWebM} type="video/webm" />
@@ -58,20 +58,20 @@ export function CTASection() {
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.1) 100%)",
+            "linear-gradient(to left, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.1) 100%)",
         }}
       />
 
       {/* Bottom golden glow */}
       <div
-        className="absolute bottom-0 left-0 w-[500px] h-[200px] pointer-events-none z-[1]"
+        className="absolute bottom-0 right-0 w-[500px] h-[200px] pointer-events-none z-[1]"
         style={{
-          background: "radial-gradient(ellipse at left bottom, rgba(255,215,0,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at right bottom, rgba(255,215,0,0.07) 0%, transparent 70%)",
         }}
       />
 
       {/* Content — left aligned */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex justify-end">
         <div
           className={`max-w-xl transition-all duration-700 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
