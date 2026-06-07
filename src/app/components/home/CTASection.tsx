@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { ArrowRight } from "lucide-react";
+import mascotWebM from "../../../imports/mascoteloop.webm";
+import mascotMp4 from "../../../imports/mascoteloop.mp4";
 
 function useInView(threshold = 0.2) {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,6 +42,27 @@ export function CTASection() {
           background: "radial-gradient(ellipse, rgba(255,215,0,0.08) 0%, transparent 70%)",
         }}
       />
+
+      {/* Mascot Background Loop */}
+      <div
+        className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden opacity-20 sm:opacity-25"
+        style={{
+          maskImage: "radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 70%)",
+          WebkitMaskImage: "radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 70%)",
+        }}
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="w-full h-full max-w-[800px] object-contain mix-blend-screen"
+        >
+          <source src={mascotWebM} type="video/webm" />
+          <source src={mascotMp4} type="video/mp4" />
+        </video>
+      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
         <div
