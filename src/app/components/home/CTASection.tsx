@@ -27,46 +27,53 @@ export function CTASection() {
       className="relative py-32 lg:py-40 overflow-hidden"
       style={{ background: "#000000" }}
     >
-      {/* Background decoration */}
+      {/* Subtle grid decoration */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none z-0"
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse, rgba(255,215,0,0.08) 0%, transparent 70%)",
-        }}
-      />
 
-      {/* Mascot Background Loop */}
-      <div
-        className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden opacity-20 sm:opacity-25"
-        style={{
-          maskImage: "radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 70%)",
-          WebkitMaskImage: "radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 70%)",
-        }}
-      >
+      {/* Mascot video — full section background */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          className="w-full h-full max-w-[800px] object-contain mix-blend-screen"
+          className="absolute right-0 top-1/2 -translate-y-1/2 h-full w-auto max-w-none object-cover"
+          style={{ opacity: 0.75 }}
         >
           <source src={mascotWebM} type="video/webm" />
           <source src={mascotMp4} type="video/mp4" />
         </video>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      {/* Left gradient overlay — ensures text readability without hiding the tiger */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.92) 35%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.1) 100%)",
+        }}
+      />
+
+      {/* Bottom golden glow */}
+      <div
+        className="absolute bottom-0 left-0 w-[500px] h-[200px] pointer-events-none z-[1]"
+        style={{
+          background: "radial-gradient(ellipse at left bottom, rgba(255,215,0,0.07) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Content — left aligned */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         <div
-          className={`transition-all duration-700 ${
+          className={`max-w-xl transition-all duration-700 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -81,7 +88,7 @@ export function CTASection() {
             style={{
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(2rem, 6vw, 4.5rem)",
+              fontSize: "clamp(2rem, 5vw, 4.5rem)",
               color: "#FFFFFF",
               lineHeight: 1.05,
               letterSpacing: "-0.02em",
@@ -94,7 +101,7 @@ export function CTASection() {
           </h2>
 
           <p
-            className="mb-10 max-w-xl mx-auto"
+            className="mb-10"
             style={{
               fontFamily: "'Figtree', sans-serif",
               fontSize: "1.1rem",
